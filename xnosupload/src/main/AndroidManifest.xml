@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tech.xiwi.xnosupload">
+
+    <application>
+        <!-- 直传统计监控服务：默认情况下120秒发送一次统计信息，没有数据则不发送，非独立进程 -->
+        <service android:name="com.netease.cloud.nos.android.service.MonitorService" />
+
+        <!-- 用于接收网络状态改变事件，例如：wifi、2G、3G的切换 -->
+        <receiver
+            android:name="com.netease.cloud.nos.android.receiver.ConnectionChangeReceiver"
+            android:label="NetworkConnection">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
